@@ -21,11 +21,12 @@
 
 .deck-container {
 	font-family: "museo", serif;
-	color: #505050;
+	color: #333;
 	font-size:1.75em;
-	background: #EEF0E6;
+	background: #f4f6f1;
 
 	> .slide {
+
 		text-shadow:1px 1px 1px rgba(255,255,255,.5);
 
 		.deck-before, .deck-previous {
@@ -44,13 +45,18 @@
 	}
 
 	.slide {
+
+		color: #333;
+
+
 		h1, h2, h3, h4, h5, h6 {
-			font-family: "anivers",sans-serif;
+			font-family: "gesta",sans-serif;
 			color: #505050;
+			text-shadow: 2px 2px #fff;
 		}
 
 		h1 {
-			color:#08455f;
+			color:#484c42;
 		}
 
 		h3.subhead {
@@ -61,7 +67,7 @@
 		}
 
 		h2 {
-			color:#0b7495;
+			color:#484c42;
 			border-bottom:0;
 			text-shadow: 2px 2px #fff;
 			margin-bottom: .2em;
@@ -120,10 +126,8 @@
 		}
 
 		blockquote {
-			font-family: "Hoefler Text", Constantia, Palatino, "Palatino Linotype", "Book Antiqua", Georgia, serif;
-			font-size:2em;
+			font-size:1.5em;
 			padding:1em 2em .5em 2em;
-			color:#000;
 			background:#fff;
 			position:relative;
 			border:1px solid #cde;
