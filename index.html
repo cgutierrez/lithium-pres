@@ -51,7 +51,7 @@
 <section class="slide">
 	<h2>Why Another Framework?</h2>
 	<ul>
-		<li class="slide current">Originally started as a series of scripts for CakePHP 3</li>
+		<li class="slide">Originally started as a series of scripts for CakePHP 3</li>
 		<li class="slide">Written from the ground up to take full advantage of PHP 5.3</li>
 	</ul>
 </section>
@@ -72,7 +72,10 @@
 			</ul>
 		</li>
 		<li class="slide">Content negotiation</li>
-		<li class="slide">AOP (Aspect-Oriented Programming) Inspired Method Filtering</li>
+		<li class="slide">
+			Method Filtering
+			<ul><li>Inspired by Aspect-Oriented Programming (AOP)</li></ul>
+		</li>
 	</ul>
 </section>
 
@@ -138,7 +141,7 @@
 	<h2>Media Class</h2>
 	<ul>
 		<li>Registers handlers for various content types</li>
-		<li>Couples with the Request object to interpret the Accepts HTTP header to render content in the correct format</li>
+		<li>Couples with the Request object to interpret the Accepts HTTP header to render content in the desired format</li>
 	</ul>
 	<script src="https://gist.github.com/3469048.js?file=types.php"></script>
 </section>
@@ -164,10 +167,10 @@
 	<h3 class="subhead">Introduction to AOP</h3>
 	<h2>Cross-Cutting Concerns</h2>
 	<ul>
-		<li class="slide">Logging</li>
-		<li class="slide">Authentication</li>
-		<li class="slide">Access Control</li>
-		<li class="slide">Caching</li>
+		<li>Logging</li>
+		<li>Authentication</li>
+		<li>Access Control</li>
+		<li>Caching</li>
 	</ul>
 </section>
 
@@ -180,7 +183,31 @@
 <section class="slide">
 	<h3 class="subhead">Introduction to AOP</h3>
 	<h2>Example (Refactored)</h2>
+	<ul>
+		<li>Refactored using the AOP-PHP PECL extension</li>
+	</ul>
 	<script src="https://gist.github.com/3469048.js?file=aop_refactored.php"></script>
+</section>
+
+<section class="slide">
+	<h3 class="subhead">Introduction to AOP</h3>
+	<h2>Vocabulary</h2>
+	<ul>
+		<li class="slide"><strong>Advice:</strong> A piece of code that <i>could get executed</i></li>
+		<li class="slide">
+			<strong>Join Point:</strong> A point at which Advice code can be applied
+			<ul>
+				<li>Before/After a function/method call</li>
+				<li>During an exception from a function/method call</li>
+			</ul>
+		</li>
+		<li class="slide">
+			<strong>Point Cut:</strong> An expression that is used to match Advice code to a Join Point
+			<ul>
+				<li>Email->send*() matches Email->send()</li>
+			</ul>
+		</li>
+	</ul>
 </section>
 
 <section class="slide">
@@ -209,6 +236,8 @@
 				<li>Modify return values</li>
 			</ul>
 		</li>
+		<li>Used to wire the framework together</li>
+		<li>Can be abused</li>
 	</ul>
 </section>
 
@@ -217,9 +246,11 @@
 	<h2>The Bad</h2>
 
 	<ul class="slide">
+		<li>Requires modification of existing code</li>
 		<li>It looks kinda ugly</li>
 		<li>Requires a reference to an object to filter non static methods</li>
 		<li>Can be a bit of a pain to debug</li>
+		<li>Can be abused</li>
 	</ul>
 </section>
 
@@ -234,6 +265,7 @@
 	<h2>Example (Make Methods Filterable)</h2>
 	<ul>
 		<li>Adds the body of the method to the bottom of the chain</li>
+		<li>Calling the `_filter` method executes all filters in the chain and returns the output</li>
 	</ul>
 </section>
 
@@ -241,6 +273,19 @@
 	<h3 class="subhead">Method Filters</h3>
 	<h2>Example (Apply Method Filters)</h2>
 	<script src="https://gist.github.com/3469048.js?file=apply_method_filters.php"></script>
+</section>
+
+<section class="slide">
+	<h3 class="subhead">Method Filters</h3>
+	<h2>Example (Apply Method Filters)</h2>
+	<ul>
+		<li>`applyFilter` method prepends filters to the filter chain of a method</li>
+		<li>Calling the `_filter` method executes all filters in the chain and returns the output</li>
+	</ul>
+</section>
+
+<section class="slide">
+	<h1>Questions?</h1>
 </section>
 
 
