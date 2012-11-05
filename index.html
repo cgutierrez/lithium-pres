@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=1024, user-scalable=no">
 
-	<title>Your deck.js Presentation</title>
+	<title>Lithium</title>
 
 	<!-- Required stylesheet -->
 	<link rel="stylesheet" href="core/deck.core.css">
@@ -18,52 +18,229 @@
 	<link rel="stylesheet" href="extensions/hash/deck.hash.css">
 	<link rel="stylesheet" href="extensions/scale/deck.scale.css">
 
-	<!-- Style theme. More available in /themes/style/ or create your own. -->
-	<link rel="stylesheet" href="themes/style/web-2.0.css">
+	<link rel="stylesheet" href="themes/style/preso.css">
 
-	<!-- Transition theme. More available in /themes/transition/ or create your own. -->
 	<link rel="stylesheet" href="themes/transition/horizontal-slide.css">
 
-	<!-- Required Modernizr file -->
 	<script src="modernizr.custom.js"></script>
+
+	<script type="text/javascript">
+	  (function() {
+	    var config = {
+	      kitId: 'cdu6slr',
+	      scriptTimeout: 3000
+	    };
+	    var h=document.getElementsByTagName("html")[0];h.className+=" wf-loading";var t=setTimeout(function(){h.className=h.className.replace(/(\s|^)wf-loading(\s|$)/g," ");h.className+=" wf-inactive"},config.scriptTimeout);var tk=document.createElement("script"),d=false;tk.src='//use.typekit.net/'+config.kitId+'.js';tk.type="text/javascript";tk.async="true";tk.onload=tk.onreadystatechange=function(){var a=this.readyState;if(d||a&&a!="complete"&&a!="loaded")return;d=true;clearTimeout(t);try{Typekit.load(config)}catch(b){}};var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(tk,s)
+	  })();
+	</script>
 </head>
 <body class="deck-container">
 
 <!-- Begin slides. Just make elements with a class of slide. -->
 
-<section class="slide">
-	<h2>A Slide</h2>
+<section class="slide intro">
+	<h1>Exploring Lithium</h1>
+	<!-- <h2 class="subtitle">Another introduction to another framework.</h2> -->
+	<a href="http://lithify.me" class="subtitle">http://lithify.me</a>
 </section>
 
 <section class="slide">
-	<h2>A Slide 2</h2>
-
-	<section class="slide deck-before">Test 1</section>
-	<section class="slide deck-previous">Test 2</section>
-	<section class="slide deck-current">Test 3</section>
-	<section class="slide deck-next">Test 4</section>
+	<h1>Why Another Framework?</h1>
 </section>
 
 <section class="slide">
-	<h2>A Slide 2</h2>
+	<h2>Why Another Framework?</h2>
+	<ul>
+		<li class="slide current">Originally started as a series of scripts for CakePHP 3</li>
+		<li class="slide">Written from the ground up to take full advantage of PHP 5.3</li>
+	</ul>
 </section>
 
 <section class="slide">
-	<h2>A Slide 3</h2>
-</section>
-
-
-<section class="slide">
-	<h1>Slide</h1>
+	<h1>What's Cool<br>About It?</h1>
 </section>
 
 <section class="slide">
-	<h1>Content</h1>
+	<h2>What's Cool About It?</h2>
+	<ul>
+		<li class="slide">&ldquo;Models&rdquo;, Views, Controllers (Yay!)</li>
+		<li class="slide">
+			Flexible routing API
+			<ul>
+				<li>Continuation routing</li>
+				<li>Microframework style routing</li>
+			</ul>
+		</li>
+		<li class="slide">Content negotiation</li>
+		<li class="slide">AOP (Aspect-Oriented Programming) Inspired Method Filtering</li>
+	</ul>
 </section>
 
 <section class="slide">
-	<h1>Here</h1>
+	<h1>Routing API</h1>
 </section>
+
+<section class="slide">
+	<h3 class="subhead">Routing API</h3>
+	<h2>Continuation Routing</h2>
+	<ul>
+		<li>/example/action -> app\controllers\ExampleController::action</li>
+		<li>/admin/example/action -> app\controllers\admin\ExampleController::action</li>
+	</ul>
+	<script src="https://gist.github.com/3469048.js?file=routes.php"></script>
+</section>
+
+<section class="slide">
+	<h3 class="subhead">Routing API</h3>
+	<h2>Microframework Routing</h2>
+	<ul>
+		<li>
+			&ldquo;Controllers&rdquo; simply have to be callable.
+			<ul>
+				<li>Controller classes are called using the new `__invoke` special method in PHP 5.3</li>
+			</ul>
+		</li>
+		<li>Route matching based on environment conditions of the request. eg: HTTP verbs</li>
+	</ul>
+	<script src="https://gist.github.com/3469048.js?file=routes_micro.php"></script>
+</section>
+
+<section class="slide">
+	<h1>Content<br>Negotiation</h1>
+</section>
+
+<section class="slide">
+	<h3 class="subhead">Content Negotiation</h3>
+	<h2>Controller</h2>
+	<ul>
+		<li>Content negotiation has to be enabled in the controller</li>
+		<li>
+			/example/action (Accept: application/json) or /example/action.json
+			<ul>
+				<li>{"key": "val"}</li>
+			</ul>
+		</li>
+	</ul>
+	<script src="https://gist.github.com/3469048.js?file=controller.php"></script>
+</section>
+
+<section class="slide">
+	<h3 class="subhead">Content Negotiation</h3>
+	<h2>Controller</h2>
+	<ul>
+		<li>Content type can also be forced per action</li>
+	</ul>
+	<script src="https://gist.github.com/3469048.js?file=controller_manual.php"></script>
+</section>
+
+<section class="slide">
+	<h3 class="subhead">Content Negotiation</h3>
+	<h2>Media Class</h2>
+	<ul>
+		<li>Registers handlers for various content types</li>
+		<li>Couples with the Request object to interpret the Accepts HTTP header to render content in the correct format</li>
+	</ul>
+	<script src="https://gist.github.com/3469048.js?file=types.php"></script>
+</section>
+
+<section class="slide">
+	<h1>Method Filters</h1>
+</section>
+
+<section class="slide">
+	<h1>Introduction<br>to AOP</h1>
+</section>
+
+<section class="slide">
+	<h3 class="subhead">Introduction to AOP</h3>
+	<h2>AOP Defined as...</h2>
+	<blockquote>
+		<p>In computing, aspect-oriented programming (AOP) is a programming paradigm which aims to increase modularity by allowing the separation of cross-cutting concerns.</p>
+		<cite>Wikipedia, http://en.wikipedia.org/wiki/Aspect-oriented_programming</cite>
+	</blockquote>
+</section>
+
+<section class="slide">
+	<h3 class="subhead">Introduction to AOP</h3>
+	<h2>Cross-Cutting Concerns</h2>
+	<ul>
+		<li class="slide">Logging</li>
+		<li class="slide">Authentication</li>
+		<li class="slide">Access Control</li>
+		<li class="slide">Caching</li>
+	</ul>
+</section>
+
+<section class="slide">
+	<h3 class="subhead">Introduction to AOP</h3>
+	<h2>Example</h2>
+	<script src="https://gist.github.com/3469048.js?file=aop.php"></script>
+</section>
+
+<section class="slide">
+	<h3 class="subhead">Introduction to AOP</h3>
+	<h2>Example (Refactored)</h2>
+	<script src="https://gist.github.com/3469048.js?file=aop_refactored.php"></script>
+</section>
+
+<section class="slide">
+	<h3 class="subhead">Introduction to AOP</h3>
+	<h2>Resources</h2>
+	<ul>
+		<li>PHP Native AOP Extension (https://github.com/AOP-PHP/AOP)</li>
+		<li>AOP Concept (http://cseweb.ucsd.edu/~wgg/CSE218/aop-ecoop97.pdf)</li>
+	</ul>
+</section>
+
+<section class="slide">
+	<h1>Method Filters</h1>
+</section>
+
+<section class="slide">
+	<h2>Method Filters</h2>
+
+	<ul>
+		<li class="slide">
+			The Good
+			<ul>
+				<li>
+					Like AOP, they let you...
+					<ul>
+						<li>Execute code before/after filtered method calls</li>
+						<li>Alter arguments</li>
+						<li>Modify return values</li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+		<li class="slide">
+			The Bad
+			<ul>
+				<li>It looks pretty ugly</li>
+				<li>Requires a reference to an object to filter non static methods</li>
+			</ul>
+		</li>
+	</ul>
+</section>
+
+<section class="slide">
+	<h3 class="subhead">Method Filters</h3>
+	<h2>Example</h2>
+	<ul>
+		<li>Making a method filterable</li>
+	</ul>
+	<script src="https://gist.github.com/3469048.js?file=method_filters.php"></script>
+</section>
+
+<section class="slide">
+	<h3 class="subhead">Method Filters</h3>
+	<h2>Example</h2>
+	<ul>
+		<li>Applying a filter</li>
+	</ul>
+	<script src="https://gist.github.com/3469048.js?file=apply_method_filters.php"></script>
+</section>
+
 
 <!-- End slides. -->
 
@@ -102,11 +279,11 @@
 <!-- Extension JS files. Add or remove as needed. -->
 <script src="../core/deck.core.js"></script>
 <script src="../extensions/hash/deck.hash.js"></script>
-<script src="../extensions/menu/deck.menu.js"></script>
-<script src="../extensions/goto/deck.goto.js"></script>
-<script src="../extensions/status/deck.status.js"></script>
-<script src="../extensions/navigation/deck.navigation.js"></script>
-<script src="../extensions/scale/deck.scale.js"></script>
+<!-- <script src="../extensions/menu/deck.menu.js"></script> -->
+<!-- <script src="../extensions/goto/deck.goto.js"></script> -->
+<!-- <script src="../extensions/status/deck.status.js"></script> -->
+<!-- <script src="../extensions/navigation/deck.navigation.js"></script> -->
+<!-- <script src="../extensions/scale/deck.scale.js"></script> -->
 
 <!-- Initialize the deck. You can put this in an external file if desired. -->
 <script>
