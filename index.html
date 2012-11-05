@@ -197,27 +197,16 @@
 </section>
 
 <section class="slide">
-	<h2>Method Filters</h2>
+	<h3 class="subhead">Method Filters</h3>
+	<h2>The Good</h2>
 
-	<ul>
-		<li class="slide">
-			The Good
+	<ul class="slide">
+		<li>
+			Like AOP, they let you...
 			<ul>
-				<li>
-					Like AOP, they let you...
-					<ul>
-						<li>Execute code before/after filtered method calls</li>
-						<li>Alter arguments</li>
-						<li>Modify return values</li>
-					</ul>
-				</li>
-			</ul>
-		</li>
-		<li class="slide">
-			The Bad
-			<ul>
-				<li>It looks pretty ugly</li>
-				<li>Requires a reference to an object to filter non static methods</li>
+				<li>Execute code before/after filtered method calls</li>
+				<li>Alter arguments</li>
+				<li>Modify return values</li>
 			</ul>
 		</li>
 	</ul>
@@ -225,19 +214,32 @@
 
 <section class="slide">
 	<h3 class="subhead">Method Filters</h3>
-	<h2>Example</h2>
-	<ul>
-		<li>Making a method filterable</li>
+	<h2>The Bad</h2>
+
+	<ul class="slide">
+		<li>It looks kinda ugly</li>
+		<li>Requires a reference to an object to filter non static methods</li>
+		<li>Can be a bit of a pain to debug</li>
 	</ul>
+</section>
+
+<section class="slide">
+	<h3 class="subhead">Method Filters</h3>
+	<h2>Example (Make Methods Filterable)</h2>
 	<script src="https://gist.github.com/3469048.js?file=method_filters.php"></script>
 </section>
 
 <section class="slide">
 	<h3 class="subhead">Method Filters</h3>
-	<h2>Example</h2>
+	<h2>Example (Make Methods Filterable)</h2>
 	<ul>
-		<li>Applying a filter</li>
+		<li>Adds the body of the method to the bottom of the chain</li>
 	</ul>
+</section>
+
+<section class="slide">
+	<h3 class="subhead">Method Filters</h3>
+	<h2>Example (Apply Method Filters)</h2>
 	<script src="https://gist.github.com/3469048.js?file=apply_method_filters.php"></script>
 </section>
 

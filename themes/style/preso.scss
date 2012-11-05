@@ -21,9 +21,9 @@
 
 .deck-container {
 	font-family: "museo", serif;
-	color: #333;
+	color: #444;
 	font-size:1.75em;
-	background: #f4f6f1;
+	background: #fefdf4;
 
 	> .slide {
 
@@ -46,7 +46,7 @@
 
 	.slide {
 
-		color: #333;
+		color: #444;
 
 
 		h1, h2, h3, h4, h5, h6 {
@@ -56,7 +56,8 @@
 		}
 
 		h1 {
-			color:#484c42;
+			color:#79aeb6;
+			text-shadow: 2px 2px #fff;
 		}
 
 		h3.subhead {
@@ -67,7 +68,7 @@
 		}
 
 		h2 {
-			color:#484c42;
+			color:#79aeb6;
 			border-bottom:0;
 			text-shadow: 2px 2px #fff;
 			margin-bottom: .2em;
